@@ -9,7 +9,7 @@ This directive make you easier to work with [json-editor] (https://github.com/jd
 get js from `./lib/dist/angular.json.editor.js`
 
 ```javascript
-angular.module('myApp', ['amass'])
+angular.module('myApp', ['json-editor'])
         .controller('myCtrl', function('$scope'){
            $scope.options = { /* JSON data */ };
            $scope.data = { /* JSON data or API */ };
