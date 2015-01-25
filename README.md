@@ -13,7 +13,6 @@ angular.module('myApp', ['amass'])
         .controller('myCtrl', function('$scope'){
            $scope.options = { /* JSON data */ };
            $scope.data = { /* JSON data or API */ };
-           $scope.schema = { /*JSON data*/};
         })
 ```
 and in html again you can use it like:
@@ -21,10 +20,15 @@ and in html again you can use it like:
 ```html
 <div ng-app='myApp'>
     <div ng-controller='myCtrl'>
-        <json-editor id="json_editor" options='options' data='data' schema='schema'></json-editor>
+        <json-editor id="json_editor" options='options' data='data'></json-editor>
     </div>
 </div>
 ```
+
+## Options
+
+Please reference [json-editor] (https://github.com/jdorn/json-editor).
+
 ## License
 
 MIT
