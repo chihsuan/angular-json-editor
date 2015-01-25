@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Angular with Json-editor</title>
+    <meta property="og:title" content="Angular with Json-editor">
+    <meta property="og:site_name" content="Angular with Json-editor">
+    <meta property="og:url" content="">
+    <meta property="og:description" content="Angular with Json-editor">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel='stylesheet' href='//cdn.jsdelivr.net/foundation/5.0.2/css/foundation.min.css'>
+  </head>
+  <body>
+
+    <div ng-app='myApp'>
+      <div ng-controller='myCtrl'>
+        <json-editor id="json_editor" options='options' data='data' schema='schema'></json-editor>
+      </div>
+    </div>
+
+  <script src="lib/dist/angular.json.editor.js"></script>
+  <script>
+    var options = {
+      "id" : "#json_editor"
+    }
+    var schema = {
+  "title": "Person",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "First and Last name",
+      "minLength": 4,
+      "default": "Jeremy Dorn"
+    },
+    "age": {
+      "type": "integer",
+      "default": 25,
+      "minimum": 18,
+      "maximum": 99
+    },
+    "favorite_color": {
+      "type": "string",
+      "format": "color",
+      "title": "favorite color",
+      "default": "#ffa500"
+    },
+    "gender": {
+      "type": "string",
+      "enum": [
+        "male",
+        "female"
+      ]
+    },
+    "location": {
+      "type": "object",
+      "title": "Location",
+      "properties": {
+        "city": {
+          "type": "string",
+          "default": "San Francisco"
+        },
+        "state": {
+          "type": "string",
+          "default": "CA"
+        },
+        "citystate": {
+          "type": "string",
+          "description": "This is generated automatically from the previous two fields",
+          "template": "{{city}}, {{state}}",
+          "watch": {
+            "city": "location.city",
+            "state": "location.state"
+          }
+        }
+      }
+    },
+    "pets": {
+      "type": "array",
+      "format": "table",
+      "title": "Pets",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "title": "Pet",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "cat",
+              "dog",
+              "bird",
+              "reptile",
+              "other"
+            ],
+            "default": "dog"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "default": [
+        {
+          "type": "dog",
+          "name": "Walter"
+        }
+      ]
+    }
+  }
+}
+
+  var data = {
+    "name": "Jeremy Dorn",
+    "age": 25,
+    "favorite_color": "#ffa500",
+    "gender": "female",
+    "location": {
+      "city": "San Francisco",
+      "state": "CA",
+      "citystate": "San Francisco, CA"
+    },
+    "pets": [
+      {
+        "type": "dog",
+        "name": "Walter"
+      }
+    ]
+  }
+      
+   angular.module('myApp', ['json-editor'])
+        .controller('myCtrl', function($scope){
+           $scope.options = options;
+           $scope.data = data;
+           $scope.schema = '';
+        })
+  </script>
+  </body>
+</html>

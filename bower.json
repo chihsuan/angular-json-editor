@@ -1,0 +1,24 @@
+{
+  "name": "angular-json-editor",
+  "version": "0.0.1",
+  "authors": [
+    "chihsuan <chihsuan.huang.7@gmail.com>"
+  ],
+  "description": "angular with json-editor",
+  "keywords": [
+    "json",
+    "editor"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.2.26",
+    "angular-route": "1.2.26"
+  }
+}
