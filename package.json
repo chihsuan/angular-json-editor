@@ -41,12 +41,5 @@
     "angular-route": "./bower_components/angular-route/angular-route.js"
   },
   "browserify-shim": {
-    "angular": "angular",
-    "angular-route": {
-      "exports": "angular.module('ngRoute')",
-      "depends": [
-        "angular"
-      ]
-    }
   }
 }

@@ -9,6 +9,10 @@ This directive make you easier to work with [json-editor] (https://github.com/jd
 get js from `./lib/dist/angular.json.editor.js`
 
 ```javascript
+<script src="./bower_components/angular/angular.js"></script>
+<script src="./bower_components/angular-route/angular-route.js"></script>
+<script src="./lib/dist/angular.json.editor.js"></script>
+
 angular.module('myApp', ['json-editor'])
         .controller('myCtrl', function('$scope'){
            $scope.options = { /* JSON data */ };

@@ -6,17 +6,6 @@ gulp.task('scripts', function() {
     gulp.src(['lib/angular.json.editor.js'])
         .pipe(browserify({
           shim: {
-            angular: {
-                path: './bower_components/angular/angular.js',
-                exports: 'angular'
-            },
-            'angular-route': {
-                path: './bower_components/angular-route/angular-route.js',
-                exports: "angular.module('ngRoute')",
-                depends: {
-                    angular: 'angular'
-                }
-            },
             jsoneditor: {
               path: './vendors/jsoneditor.min.js',
               exports: "jsoneditor"
